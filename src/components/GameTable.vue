@@ -48,6 +48,7 @@
         <section class="cashout-button-wrapper">
             <button 
                 @click="cashOut()"
+                @mouseover="setRandomPosiblitiesOnCashOutbutton()"
                 class="cash-out-button button"
                 :class="[translateClassName, {'disable-button':isDisableCashoutButton}]"
             >
@@ -215,25 +216,30 @@ export default {
                 }
             },
             cashOut(){
-                if(this.credit>0){
-                    let raondomNumber = Math.random()
-                    if(raondomNumber<0.5){
-                        this.enableCashoutButton()
-                        this.translateClassName = this.translateClassNamesList[this.generateRandomNumber(0,3)]
-                        this.isTranslateButton = true
-                    } else if(raondomNumber<0.9){
-                        this.disableCashoutButton()
-                    } else {
-                        this.enableCashoutButton()
+                if(!this.isDisableCashoutButton){
+                    if(this.credit>0){
                         this.userCash = this.credit
                         this.credit = 0
+                        this.disableCashoutButton()
+                    } else {
+                        this.setNotification({
+                            title: 'There is no credit for cashing out',
+                            type: 'warn'
+                        })
+                        this.disableCashoutButton()
                     }
-                } else {
-                    this.setNotification({
-                        title: 'There is no credit for cashing out',
-                        type: 'warn'
-                    })
+                }
+            },
+            setRandomPosiblitiesOnCashOutbutton(){
+                let raondomNumber = Math.random()
+                if(raondomNumber<0.5){
+                    this.enableCashoutButton()
+                    this.translateClassName = this.translateClassNamesList[this.generateRandomNumber(0,3)]
+                    this.isTranslateButton = true
+                } else if(raondomNumber<0.9){
                     this.disableCashoutButton()
+                } else {
+                    this.enableCashoutButton()
                 }
             },
             disableCashoutButton(){
