@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <GameTable />
+    <notifications position="top center" width="40%" :max="3"/>
   </div>
 </template>
 
