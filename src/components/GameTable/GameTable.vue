@@ -59,11 +59,11 @@
 </template>
 
 <script>
-import CherrySvg from '../assets/svg/cherry.svg'
-import LemonSvg from '../assets/svg/lemon.svg'
-import OrangeSvg from '../assets/svg/orange.svg'
-import WaterMelonSvg from '../assets/svg/watermelon.svg'
-import Loading from './Loading.vue'
+import CherrySvg from '../../assets/svg/cherry.svg'
+import LemonSvg from '../../assets/svg/lemon.svg'
+import OrangeSvg from '../../assets/svg/orange.svg'
+import WaterMelonSvg from '../../assets/svg/watermelon.svg'
+import Loading from '../Loading.vue'
 
 export default {
     name: 'GameTable',
@@ -259,96 +259,5 @@ export default {
 </script>
 
 <style scoped>
-.container{
-    height: 60vh;
-    width: 80vw;
-    margin: 8rem auto auto;
-    display: flex;
-    align-items: center;
-}
-
-.fruit-component{
-    width: 12rem;
-    height: 12rem;
-}
-
-.fruit-block{
-    border: thin solid gray;
-    width: 30%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.winner-style{
-    border: thin solid #43CBC0;
-}
-
-.cashout-button-wrapper{
-    display: flex;
-    justify-content: center;
-    margin: 2rem auto;
-    padding: 0.5rem;
-}
-
-.button{
-    color: #FFF;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    margin-left: 0.5rem;
-    cursor: pointer;
-    width: 6rem;
-}
-
-.disable-button{
-    background: #D4d4d4 !important;
-    cursor: default;
-}
-
-.start-button{
-    background: #43CBC0;
-}
-
-.cash-out-button{
-    background: #3F5469;
-}
-
-.translate-plus-x{
-    transform: translate(300px)
-}
-
-.translate-minus-x{
-    transform: translate(-300px)
-}
-
-.translate-plus-y{
-    transform: translate(0,300px)
-}
-
-.translate-minus-y{
-    transform: translate(0,-300px)
-}
-
-.start-button:hover{
-    filter: brightness(95%);
-}
-
-.score-wrapper{
-    width: 80vw;
-    margin: auto;
-}
-
-.score{
-    display:flex;
-    justify-content: space-between;
-    background: #F6F8FA;
-    width: 88.5%;
-    padding: 1rem;
-}
-
-.winner-score-style{
-    color: #43CBC0;
-}
+@import './game-table.css';
 </style>
